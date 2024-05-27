@@ -2,7 +2,7 @@ import torch
 from pathlib import Path
 from torchvision import transforms
 from utils import ids_to_tokens, img_transformation
-from modelMobileNetV3 import Encoder, Decoder
+from modelCustomCNN import Encoder, Decoder
 import pickle
 from GUIconverter.GUIconverter import GUIconverter
 import streamlit as st
@@ -69,7 +69,7 @@ selected_display_name = st.radio(
 styleH = style_options[selected_display_name]
 
 # Configuration parameters
-model_file_path = "./ED--epoch-84--loss-0.03774.pth" 
+model_file_path = "./ED--epoch-92--loss-0.01324.pth" 
 img_crop_size = 224
 seed = 42
 
@@ -114,7 +114,6 @@ if uploaded_file is not None:
     
     # Display generated code
     st.code(predicted_html_string, language="cshtml", line_numbers= True)
-    
     
     # Download button for the HTML code
     st.download_button(
