@@ -38,7 +38,8 @@ def img_transformation(img_crop_size):
     return transforms.Compose([
         transforms.Resize((img_crop_size, img_crop_size)),  # Resize the image
         transforms.ToTensor(),  # Convert the image to tensor
-        transforms.Lambda(lambda x: (x > 0.5).float())  # Binarize the image
+        transforms.Normalize([0.930213], [0.216819]),  # Normalize the image
+        transforms.Lambda(lambda x: (x > 0.01).float())  # Binarize the image
     ])
 
 
